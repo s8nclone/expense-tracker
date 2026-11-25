@@ -1,0 +1,44 @@
+@ExpenseTracker.Api_HostAddress = http://localhost:5296
+
+### OpenAPI document (Development only)
+GET {{ExpenseTracker.Api_HostAddress}}/openapi/v1.json
+Accept: application/json
+
+### List expenses (with optional filtering, sorting, pagination)
+GET {{ExpenseTracker.Api_HostAddress}}/api/expenses?page=1&pageSize=20&sortBy=date&sortOrder=desc
+Accept: application/json
+
+### Create an expense
+POST {{ExpenseTracker.Api_HostAddress}}/api/expenses
+Content-Type: application/json
+
+{
+  "title": "Coffee",
+  "description": "Morning espresso at local cafe",
+  "amount": 4.75,
+  "category": "Food",
+  "date": "2026-11-23"
+}
+
+### Get an expense by ID
+GET {{ExpenseTracker.Api_HostAddress}}/api/expenses/1
+Accept: application/json
+
+### Update an expense
+PUT {{ExpenseTracker.Api_HostAddress}}/api/expenses/1
+Content-Type: application/json
+
+{
+  "title": "Coffee & Croissant",
+  "description": "Breakfast at local cafe",
+  "amount": 8.50,
+  "category": "Food",
+  "date": "2026-11-23"
+}
+
+### Get expense summary (by category and month)
+GET {{ExpenseTracker.Api_HostAddress}}/api/expenses/summary
+Accept: application/json
+
+### Delete an expense
+DELETE {{ExpenseTracker.Api_HostAddress}}/api/expenses/1
